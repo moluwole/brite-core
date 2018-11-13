@@ -1,0 +1,110 @@
+{% include 'layout-master.html' %}
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Request Feature</div>
+                    <div class="panel-body">
+
+                        {% if error %}
+                            <div class="alert alert-danger">
+                                <p>{{ error }}</p>
+                            </div>
+                        {% endif %}
+
+                        {% with messages = get_flashed_messages(category_filter=["success"]) %}
+                          {% if messages %}
+                            {% for message in messages %}
+                              <div class="alert alert-success">
+                                <p>{{ message }}</p>
+                            </div>
+                            {% endfor %}
+                          {% endif %}
+                        {% endwith %}
+
+                        <form class="form-horizontal" method="post" action="/add-new">
+
+                            <div class="form-group">
+                                    <label for="title" class="col-md-4 control-label">Feature Title</label>
+                                <div class="col-md-6">
+                                    <input class="form-control" id="title" name="title" placeholder="Enter Feature Title" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description" class="col-md-4 control-label">Feature Description</label>
+                                <div class="col-md-6">
+                                    <textarea id="description" name="description" class="form-control" placeholder="Describe Features" rows="5" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client" class="col-md-4 control-label">Choose Client</label>
+                                <div class="col-md-6">
+                                    <select id="client" name="client" required>
+                                        <optgroup label="Client">
+                                            <option>Client A</option>
+                                            <option>Client B</option>
+                                            <option>Client C</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client_priority" class="col-md-4 control-label">Select Priority</label>
+                                <div class="col-md-6">
+                                    <select id="client_priority" name="client_priority" required>
+                                        <optgroup label="Client Priority">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="target_date" class="col-md-4 control-label">Target Date</label>
+                                <div class="col-md-6">
+                                    <input type='text' class="form-control" name="target_date" id="target_date" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product_areas" class="col-md-4 control-label">Product Areas</label>
+                                <div class="col-md-6">
+                                    <select id="product_areas" name="product_areas" required>
+                                        <optgroup label="Client Priority">
+                                            <option>Policies</option>
+                                            <option>Billing</option>
+                                            <option>Claims</option>
+                                            <option>Reports</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-8">
+                                    <button type="submit" class="form-group btn btn-primary">Save Feature</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

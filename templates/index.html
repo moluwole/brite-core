@@ -1,0 +1,71 @@
+{% include 'layout-master.html' %}
+<script>
+  $(document).ready(function () {
+    $('#features').DataTable();
+  })
+</script>
+<div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+
+                <div class="row" style="margin-bottom: 20px; text-align: center;">
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#clientName">
+                          View By Client
+                        </button>
+                    </div>
+
+                    <div class="col-md-4">
+                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalDate">
+                          View By Date
+                        </button>
+                    </div>
+
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalProduct">
+                          View By Product
+                        </button>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{ title }}</div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table id="features" class="display table table-striped">
+                                <thead>
+                                     <tr>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                         <th>Client</th>
+                                         <th>Priority</th>
+                                         <th>Target Date</th>
+                                         <th>Product Area</th>
+                                     </tr>
+                                </thead>
+                                <tbody>
+                                {% for feature in data %}
+                                    <tr>
+                                        <td> {{ loop.index }} </td>
+                                        <td> {{ feature["title"] }} </td>
+                                        <td> {{ feature["description"] }} </td>
+                                        <td> {{ feature["client"] }} </td>
+                                        <td> {{ feature["client_priority"] }} </td>
+                                        <td> {{ feature["target_date"] }} </td>
+                                        <td> {{ feature["product_areas"] }} </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
