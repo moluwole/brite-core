@@ -12,4 +12,4 @@ COPY . /code
 
 ENTRYPOINT [ "python" ]
 
-CMD [ "app.py" ]
+CMD [ "server.py" ]
