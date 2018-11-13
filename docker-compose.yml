@@ -13,9 +13,7 @@ services:
         ports:
             - "32000:3306"
         environment:
-            MYSQL_ROOT_PASSWORD: root
+            MYSQL_ROOT_PASSWORD: "nigeriA070"
             MYSQL_DATABASE: "features"
-            MYSQL_USER: "newUser"
-            MYSQL_PASSWORD: "emerald976"
         volumes:
             - ./db:/docker-entrypoint-initdb.d/:ro
